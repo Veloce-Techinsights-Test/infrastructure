@@ -1,0 +1,19 @@
+// dynamic-table.component.html
+<table>
+    <thead>
+        <tr>
+            <th *ngFor="let header of headers">{{ header }}</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of data">
+            <td *ngFor="let key of headers">{{ row[key] }}</td>
+            <td>
+                <button (click)="onView(row)">View</button>
+                <button (click)="onEdit(row)">Edit</button>
+                <button (click)="onDelete(row)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
