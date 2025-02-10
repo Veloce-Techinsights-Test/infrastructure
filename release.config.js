@@ -12,7 +12,7 @@ module.exports = {
     [
       "@semantic-release/npm",
       {
-        npmPublish: true,
+        npmPublish: false, // Disable npm publishing
       },
     ],
     [
@@ -23,5 +23,6 @@ module.exports = {
           "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
       },
     ],
+    "@semantic-release/github", // Add GitHub release plugin
   ],
 };
