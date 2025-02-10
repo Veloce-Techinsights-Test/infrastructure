@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # Ensure the token is passed to checkout
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -23,6 +25,5 @@ jobs:
       - name: Run Semantic Release
         run: npx semantic-release
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Ensure semantic-release uses the token
 
