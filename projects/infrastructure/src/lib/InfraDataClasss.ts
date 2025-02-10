@@ -14,6 +14,7 @@ export class InfraDataClasss {
         public month?: string,
         public description?: string,
         public descriptionnnnnn?: string,
+        public data?: string,
     ) { }
 
     toggleCompletion() {
