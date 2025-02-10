@@ -1,17 +1,16 @@
-/* // dynamic-table.component.css */
-table {
+.dynamic-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-th, td {
+.dynamic-table th, .dynamic-table td {
   border: 1px solid #ddd;
   padding: 8px;
-  text-align: left;
 }
 
-th {
-  background-color: #f4f4f4;
+.dynamic-table th {
+  background-color: #f2f2f2;
+  text-align: left;
 }
 
 button {
@@ -21,17 +20,8 @@ button {
   background-color: #007bff;
   color: white;
   cursor: pointer;
-  border-radius: 4px;
 }
 
 button:hover {
   background-color: #0056b3;
 }
-
-button:last-child {
-  background-color: #dc3545;
-}
-
-button:last-child:hover {
-  background-color: #c82333;
-} 

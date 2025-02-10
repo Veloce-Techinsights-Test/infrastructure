@@ -1,14 +1,14 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'DynamicTable',
-  imports: [],
+  selector: 'lib-dynamic-table',
   templateUrl: './dynamic-table.component.html',
-  styleUrl: './dynamic-table.component.css'
+  styleUrl: './dynamic-table.component.css',
+  standalone:false,
 })
 export class DynamicTableComponent {
-  @Input() headers: string[] = [];
-  @Input() data: any[] = [];
+  @Input() headers: string[] = [];      // Array of headers
+  @Input() data: any[] = [];            // Array of objects (rows)
 
   @Output() edit = new EventEmitter<any>();
   @Output() delete = new EventEmitter<any>();
