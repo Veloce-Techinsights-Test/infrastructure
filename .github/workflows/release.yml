@@ -1,4 +1,33 @@
-name: Release and Publish
+# name: Release and Publish
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   release:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }}  # Ensure the token is passed to checkout
+
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: '20.8.1'
+
+#       - name: Install dependencies
+#         run: npm install
+
+#       - name: Run Semantic Release
+#         run: npx semantic-release
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Ensure semantic-release uses the token
+
+name: Release
 
 on:
   push:
@@ -8,22 +37,21 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # Ensure the token is passed to checkout
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20.8.1'
+          node-version: '20.8.1'  # Use your preferred Node.js version
+
+      - name: Configure npm for Verdaccio
+        run: echo "//localhost:4873/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run Semantic Release
+      - name: Run semantic-release
         run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Ensure semantic-release uses the token
-
